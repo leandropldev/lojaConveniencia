@@ -1,15 +1,22 @@
 package br.com.loja.controllers;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.loja.dto.ApiResponseDTO;
+
 @RestController
-@RequestMapping("health")
+@RequestMapping("/health")
 public class HealthController {
 
 	@GetMapping
-	public String health() {
-		return "Bem vindo à loja de conveniências";
+	public ResponseEntity<ApiResponseDTO> health() {
+		return new ResponseEntity<>(ApiResponseDTO.builder()
+					.data(null)
+					.message("Aplicação rodando ok!")
+					.status(HttpStatus.OK).build(), HttpStatus.OK);
 	}
 }
