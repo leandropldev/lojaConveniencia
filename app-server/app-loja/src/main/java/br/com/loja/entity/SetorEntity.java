@@ -27,7 +27,7 @@ public class SetorEntity implements Serializable{
 	@Id
 	@Column(name = "id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private Integer id;
 	@Column(name = "nome", nullable = false)
 	private String nome;
 
