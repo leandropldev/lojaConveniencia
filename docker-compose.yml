@@ -1,0 +1,51 @@
+# Docker Compose file Reference (https://docs.docker.com/compose/compose-file/)
+version: '3'
+
+#Define services
+services:
+
+  #Back-end Spring Boot Application
+  app-server:
+    #The docker file in app-server build the jar and provides the docker image with the following name.
+    build: ./app-server
+    container_name: app-server
+
+    #Environment variables for Spring Boot Application.
+    environment:
+      - DB_SERVER=xxxx
+      - MYSQL_DB=xxxx
+      - MYSQL_USER=xxxxx
+      - MYSQL_PASSWORD=xxxxx
+    ports:
+      - 8080:8080 # Forward the exposed port 8080 on the container to port 8080 on the host machine
+    links:
+      - db-mysql
+
+  #Fron-end Angular Application
+  app-client:
+    build: ./app-client
+    container_name: app-client
+    ports:
+      - 4200:80
+    links:
+      - app-server
+
+  #MySQL Database for the application
+  db-mysql:
+    image: "xxxxxxxxxx"
+    container_name: db-mysql
+    #Volume mounted for database for the storage
+    volumes:
+      - project-data:/var/lib/db-mysql/data
+    ports:
+      - 3306:3306 # Forward the exposed port 3306 on the container to port 3306 on the host machine
+
+    #Environment variable for DB name, user and password
+    environment:
+      - MYSQL_DB=XXXXXX
+      - MYSQL_USER=XXXXXX
+      - MYSQL_PASSWORD=XXXXXX
+
+#Volumes for DB data
+volumes:
+  project-data:
