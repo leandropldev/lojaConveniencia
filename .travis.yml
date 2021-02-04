@@ -1,0 +1,17 @@
+language: bash
+services: docker
+before_install:
+  - echo "Estamos na pasta do Docker-Compose!"
+script:
+  - docker-compose build
+before_deploy:
+  - echo "${DOCKER_PASSWORD}"  | docker login --username "${DOCKER_USERNAME}" --password-stdin
+deploy:
+  provider:script
+  script:
+    docker push leandropldev/loja-mysql; 
+    docker push leandropldev/loja-server;
+  on:
+    branch: developer]
+notifications:
+  email: false
