@@ -2,7 +2,7 @@ language: bash
 services: 
   - docker
 before_install:
-  - echo "Estamos na pasta do Docker-Compose!!!"
+  - echo "Estamos na pasta do Docker-Compose!"
 script:
   - docker-compose build
 before_deploy:
