@@ -12,6 +12,6 @@ deploy:
     docker push leandropldev/loja-mysql; 
     docker push leandropldev/loja-server;
   on:
-    branch: developer
+    branch: main
 notifications:
   email: false
