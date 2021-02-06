@@ -35,9 +35,6 @@ public class SetorService {
 	}
 	
 	public ApiResponseDTO create(SetorDTO data) {
-		if(repository.findById(data.getId()).isPresent())
-			throw new ServiceException("Setor já existente, não é possível criar um novo!");
-		
 		SetorEntity save = repository.save(DozerConverter.parseObject(data, SetorEntity.class));
 		return ApiResponseDTO.builder()
 				.message("Recurso /post setor realizado com sucesso")

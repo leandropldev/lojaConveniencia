@@ -2,7 +2,7 @@ server:
   servlet:
     context-path: /loja-da-joyce
     
-spring:  datasource:    username: root
-    password: ${MYSQL_PASSWORD}
-    url: jdbc:mysql://db:3306/${MYSQL_DATABASE}?useTimezone=true&serverTimezone=UTC&useSSL=false
-    driver-class-name: com.mysql.cj.jdbc.Driver  jpa:    hibernate:      ddl-auto: update
+spring:  datasource:    username: docker
+    password: docker123
+    url: jdbc:mysql://loja-db.cj1e964xtnwk.us-east-2.rds.amazonaws.com:3306/loja_db?useTimezone=true&serverTimezone=UTC&useSSL=false
+    driver-class-name: com.mysql.cj.jdbc.Driver  jpa:    hibernate:      ddl-auto: update
