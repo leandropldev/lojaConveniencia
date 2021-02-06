@@ -16,7 +16,7 @@ public class HealthController {
 	public ResponseEntity<ApiResponseDTO> health() {
 		return new ResponseEntity<>(ApiResponseDTO.builder()
 					.data(null)
-					.message("Aplicação rodando em docker!")
+					.message("Aplicação rodando na AWS!")
 					.status(HttpStatus.OK).build(), HttpStatus.OK);
 	}
 }
