@@ -7,7 +7,7 @@ spring:
     username: docker
     password: docker123
     #url: jdbc:mysql://loja-db.cj1e964xtnwk.us-east-2.rds.amazonaws.com:3306/loja_db?useTimezone=true&serverTimezone=UTC&useSSL=false
-    url: jdbc:mysql://localhost:3306/loja_db?useTimezone=true&serverTimezone=UTC&useSSL=false
+    url: jdbc:mysql://db:3306/loja_db?useTimezone=true&serverTimezone=UTC&useSSL=false
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
