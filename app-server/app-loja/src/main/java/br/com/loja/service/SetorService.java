@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import br.com.loja.converter.DozerConverter;
 import br.com.loja.dto.ApiResponseDTO;
 import br.com.loja.dto.SetorDTO;
-import br.com.loja.entity.SetorEntity;
+import br.com.loja.entity.Setor;
 import br.com.loja.exception.ServiceException;
 import br.com.loja.repository.SetorRepository;
 
@@ -35,7 +35,7 @@ public class SetorService {
 	}
 	
 	public ApiResponseDTO create(SetorDTO data) {
-		SetorEntity save = repository.save(DozerConverter.parseObject(data, SetorEntity.class));
+		Setor save = repository.save(DozerConverter.parseObject(data, Setor.class));
 		return ApiResponseDTO.builder()
 				.message("Recurso /post setor realizado com sucesso")
 				.data(save)
@@ -46,7 +46,7 @@ public class SetorService {
 		if(!repository.findById(id).isPresent())
 			throw new ServiceException("Setor não encontrado!");
 		
-		SetorEntity save = repository.save(DozerConverter.parseObject(dto, SetorEntity.class));
+		Setor save = repository.save(DozerConverter.parseObject(dto, Setor.class));
 		return ApiResponseDTO.builder()
 				.message("Recurso /update setor realizado com sucesso")
 				.data(save)

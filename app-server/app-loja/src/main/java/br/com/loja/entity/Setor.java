@@ -10,17 +10,15 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@Builder
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "setor")
-public class SetorEntity implements Serializable{
+public class Setor implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	
