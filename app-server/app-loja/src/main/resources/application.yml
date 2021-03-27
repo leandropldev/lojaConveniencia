@@ -2,10 +2,18 @@ server:
   servlet:
     context-path: /loja-da-joyce
     
-spring:  datasource:    username: root
+spring:
+  datasource:
+    username: root
     password: ${MYSQL_PASSWORD}
     url: jdbc:mysql://db:3306/${MYSQL_DATABASE}?useTimezone=true&serverTimezone=UTC&useSSL=false
-    driver-class-name: com.mysql.cj.jdbc.Driver  jpa:    hibernate:      ddl-auto: none    show-sql: false  flyway:    url: jdbc:mysql://db:3306/
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: false
+  flyway:
+    url: jdbc:mysql://db:3306/
     schemas: loja_db
     user: docker
-    password: docker
+    password: docker
