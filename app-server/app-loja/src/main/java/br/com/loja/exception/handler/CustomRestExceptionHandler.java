@@ -16,6 +16,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 import br.com.loja.dto.ApiResponseDTO;
 import br.com.loja.exception.ServiceException;
+import br.com.loja.security.exceptions.InvalidJwtAuthenticationException;
 
 @RestControllerAdvice
 public class CustomRestExceptionHandler extends ResponseEntityExceptionHandler {
@@ -50,9 +51,18 @@ public class CustomRestExceptionHandler extends ResponseEntityExceptionHandler {
 		return new ResponseEntity<ApiResponseDTO>(data, data.getStatus());
 	}
 	
+	@ExceptionHandler(value = {InvalidJwtAuthenticationException.class})
+	protected ResponseEntity<ApiResponseDTO> handleInvalidJwtAuthenticationException(Exception ex, WebRequest request){
+		ApiResponseDTO data = ApiResponseDTO.builder()
+			.data(null)
+			.message(ex.getMessage())
+			.status(HttpStatus.BAD_REQUEST)
+			.build();
+		return new ResponseEntity<ApiResponseDTO>(data, data.getStatus());
+	}
+	
 	@ExceptionHandler(value = {Exception.class})
 	protected ResponseEntity<ApiResponseDTO> handleExpetion(Exception ex, WebRequest request){
-		
 		ApiResponseDTO data = ApiResponseDTO.builder()
 			.data(null)
 			.message("Erro Interno!")

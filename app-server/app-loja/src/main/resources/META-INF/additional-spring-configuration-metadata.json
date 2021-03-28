@@ -1,0 +1,17 @@
+{"properties": [
+  {
+    "name": "security-config.secret-key",
+    "type": "java.lang.String",
+    "description": "A description for 'security-config.secret-key'"
+  },
+  {
+    "name": "security-config.expire_lenght",
+    "type": "java.lang.String",
+    "description": "A description for 'security-config.expire_lenght'"
+  },
+  {
+    "name": "security-data.secret_key",
+    "type": "java.lang.String",
+    "description": "A description for 'security-data.secret_key'"
+  }
+]}
