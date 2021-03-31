@@ -1,4 +1,4 @@
-package br.com.loja.service;
+	package br.com.loja.service;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -9,9 +9,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.stereotype.Service;
 
-import br.com.loja.converter.DozerConverter;
 import br.com.loja.dto.ApiResponseDTO;
-import br.com.loja.entity.Setor;
 import br.com.loja.exception.ServiceException;
 import br.com.loja.security.dto.AccountCredentialsDTO;
 import br.com.loja.security.entity.User;
@@ -50,12 +48,12 @@ public class LoginService {
 			data.put("token", token);
 			
 			return ApiResponseDTO.builder()
-					.message("Recurso /get/{id} setor realizado com sucesso")
+					.message("Recurso /login realizado com sucesso")
 					.data(data)
 					.status(HttpStatus.OK).build();
 			
 		} catch (Exception e) {
-			throw new ServiceException("Erro ao logar na aplicação!");
+			throw new ServiceException("Erro ao logar na aplicação: " + e.getMessage());
 		}
 	}
 }

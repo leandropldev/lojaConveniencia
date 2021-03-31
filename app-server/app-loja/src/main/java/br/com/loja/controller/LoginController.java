@@ -20,7 +20,7 @@ public class LoginController {
 	private LoginService service;
 	
 	@PostMapping
-	public ResponseEntity<ApiResponseDTO> createSetor(@RequestBody @Validated AccountCredentialsDTO login){
+	public ResponseEntity<ApiResponseDTO> createSetor(@Validated @RequestBody AccountCredentialsDTO login){
 		ApiResponseDTO data = service.doLogin(login);
 		return new ResponseEntity<ApiResponseDTO>(data, data.getStatus());
 	}

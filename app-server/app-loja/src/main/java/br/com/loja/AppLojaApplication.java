@@ -10,7 +10,6 @@ public class AppLojaApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(AppLojaApplication.class, args);
 		
-		BCryptPasswordEncoder bcrypt = new BCryptPasswordEncoder(16);
-		System.out.println("Senha encriptada: " + bcrypt.encode("Admin123"));
+		System.out.println("Senha encriptada: " + new BCryptPasswordEncoder(16).encode("admin123"));
 	}
 }
