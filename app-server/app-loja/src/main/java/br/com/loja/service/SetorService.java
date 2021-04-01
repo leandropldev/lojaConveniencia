@@ -54,7 +54,6 @@ public class SetorService {
 	}
 	
 	public ApiResponseDTO delete(int id) {
-
 			if(!repository.findById(id).isPresent())
 				throw new ServiceException("Setor não encontrado!");
 			
